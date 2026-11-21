@@ -241,10 +241,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
 .plan-period { color: #efdbed; font: 600 .95rem/1 Barlow, sans-serif; white-space: nowrap; }
 .plan-card-yearly .plan-price { color: #ffd099; margin-bottom: .65rem; }
 .plan-installments { color: #f9dee8; font: 700 1rem/1 Barlow, sans-serif; white-space: nowrap; }
-.plan-installment-total { margin-bottom: .44rem; color: #ebd6e8; font-size: .9rem; line-height: 1.35; }
-.plan-upfront { margin-bottom: .55rem; color: #fff1f1; font-size: .97rem; line-height: 1.36; }
-.plan-note { margin: 0 0 1.15rem; color: #edd4e8; font-size: .91rem; line-height: 1.35; }
-.plan-note strong { color: #ffd09c; }
+.plan-upfront { margin-bottom: 1.15rem; color: #fff1f1; font-size: .97rem; line-height: 1.36; }
 .checkout-button { width: 100%; min-height: 48px; margin-top: auto; }
 .checkout-note { margin-top: .85rem; color: var(--muted); font-size: .88rem; line-height: 1.4; }
 

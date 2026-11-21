@@ -4,9 +4,9 @@ Landing page estática em português para o pack de cortes de lives. O arquivo p
 
 ## Configurar a venda
 
-1. Os botões **Assinar mensal** e **Assinar anual** apontam para seus respectivos checkouts da Kiwify. Para trocar um link, edite o atributo `href` do botão correspondente na seção `#oferta` de `index.html`.
-2. Ao mudar um preço na Kiwify, atualize o texto e o atributo `value` do respectivo `<data>` no HTML. Confira separadamente o mensal, o anual à vista e o número, o valor e o total das parcelas. Recalcule a economia subtraindo o valor anual à vista de 12 mensalidades.
-3. Configure na Kiwify a entrega do link do Google Drive aos assinantes. Mantenha as permissões do Drive de acordo com a regra divulgada no site. Em caso de cancelamento, o assinante mantém acesso até o fim do período já pago.
+1. Os botões **Assinar mensal** e **Assinar anual** apontam para seus respectivos checkouts da Cakto. Para trocar um link, edite o atributo `href` do botão correspondente na seção `#oferta` de `index.html`.
+2. Ao mudar um preço na Cakto, atualize o texto e o atributo `value` do respectivo `<data>` no HTML. Confira o mensal, o anual à vista e o número e o valor das parcelas.
+3. Configure na Cakto a entrega do link do Google Drive aos assinantes. Mantenha as permissões do Drive de acordo com a regra divulgada no site. Em caso de cancelamento, o assinante mantém acesso até o fim do período já pago.
 
 ## Publicar via GitHub e Vercel
 
