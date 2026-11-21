@@ -20,11 +20,29 @@ if ("IntersectionObserver" in window && (motionPreview || !reducedMotion.matches
   }
 }
 
+const mobilePlans = document.querySelector(".mobile-plans");
+const mobileViewport = window.matchMedia("(max-width: 760px)");
+const hero = document.querySelector(".hero");
+const offer = document.querySelector("#oferta");
+
+function updateMobilePlans() {
+  const hidden = !mobileViewport.matches ||
+    hero.getBoundingClientRect().bottom > 0 ||
+    offer.getBoundingClientRect().top < window.innerHeight;
+  if (mobilePlans.hidden !== hidden) mobilePlans.hidden = hidden;
+}
+
+window.addEventListener("scroll", updateMobilePlans, { passive: true });
+window.addEventListener("resize", updateMobilePlans);
+window.addEventListener("pageshow", updateMobilePlans);
+updateMobilePlans();
+
 const dialog = document.querySelector(".player");
 const video = document.querySelector("#clip-video");
 const playerTitle = document.querySelector("#player-title");
 const playerCreator = document.querySelector("#player-creator");
 const playerCount = document.querySelector("#player-count");
+const playerControls = dialog.querySelector(".player-controls");
 const playerError = document.querySelector("#player-error");
 const playerDownload = document.querySelector("#player-download");
 let group = [];
@@ -37,6 +55,7 @@ function playClip() {
   playerTitle.textContent = title;
   playerCreator.textContent = clip.dataset.creator;
   playerCount.textContent = `${index + 1} de ${group.length}`;
+  playerControls.hidden = group.length === 1;
   playerError.hidden = true;
   playerDownload.href = clip.href;
   video.poster = clip.querySelector("img").src;
