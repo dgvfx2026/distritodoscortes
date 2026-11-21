@@ -5,7 +5,7 @@ Landing page estática em português para o pack de cortes de lives. O arquivo p
 ## Configurar a venda
 
 1. Os botões **Assinar mensal** e **Assinar anual** apontam para seus respectivos checkouts da Kiwify. Para trocar um link, edite o atributo `href` do botão correspondente na seção `#oferta` de `index.html`.
-2. Ao mudar um preço na Kiwify, atualize também o texto e o atributo `value` do respectivo `<data>` no HTML. Recalcule a economia do anual subtraindo o valor anual à vista de 12 mensalidades.
+2. Ao mudar um preço na Kiwify, atualize o texto e o atributo `value` do respectivo `<data>` no HTML. Confira separadamente o preço mensal, o valor anual à vista e o número e valor das parcelas do anual. Recalcule a economia subtraindo o valor anual à vista de 12 mensalidades.
 3. Configure na Kiwify a entrega do link do Google Drive aos assinantes. Mantenha no Drive as pastas de cada criador e live e adicione os cortes novos ao acervo.
 
 ## Publicar via GitHub e Vercel

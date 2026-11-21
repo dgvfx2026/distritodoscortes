@@ -13,7 +13,7 @@
   --pink: #ff8cc6;
   --peach: #ffc18f;
   --line: #35253e;
-  --sunset: linear-gradient(105deg, #ffd09c 0%, #ff98ba 50%, #ee96ec 100%);
+  --sunset: linear-gradient(180deg, #c5adfc 0%, #e391d6 29%, #fa98ad 56%, #ffab84 81%, #ffd098 100%);
   --display: "Barlow Condensed", Impact, "Arial Narrow", sans-serif;
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
@@ -72,13 +72,15 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
 
 .hero { position: relative; isolation: isolate; overflow: hidden; background: #1e0e27; }
 .hero-landscape {
+  --hero-shade: linear-gradient(90deg, #110a1df9 3%, #1d1129ed 27%, #2e153b87 57%, #2e153b1c 100%);
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, #100a1af8 4%, #160b21ee 26%, #1b0d26aa 53%, #290f3c30 100%),
-    linear-gradient(0deg, #100b18 1%, #160f1d12 64%, #160d23a0 100%),
-    url("assets/entardecer.webp") center 58% / cover no-repeat;
+    var(--hero-shade),
+    linear-gradient(0deg, #100b18 0%, #160e1adc 8%, #27163125 29%, transparent 47%),
+    linear-gradient(180deg, #4c3e8296 5%, #a062ac83 37%, #f679a582 62%, #ffad78ac 84%, #ffc18560 100%),
+    url("assets/entardecer.webp") center 60% / cover no-repeat;
 }
 .hero-inner {
   display: grid;
@@ -138,7 +140,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
 .hero-clip-center .clip-copy { inset-inline: .83rem; bottom: .85rem; }
 .hero-clip-center .clip-title { font-size: clamp(1rem, 1.45vw, 1.3rem); }
 
-.acervo { background: #1a1023; border-block: 1px solid #412a48; }
+.acervo { background: linear-gradient(105deg, #251734, #25172c 55%, #30202d); border-block: 1px solid #5a3850; }
 .acervo-inner { display: grid; grid-template-columns: 1fr 1fr 1fr 1.12fr; min-height: 85px; align-items: stretch; }
 .stat { display: flex; gap: .75rem; align-items: center; justify-content: center; padding: .65rem .55rem; border-right: 1px solid #3d2b45; color: #dfcbe2; }
 .stat:first-child { justify-content: flex-start; padding-left: .1rem; }
@@ -172,7 +174,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
   border-radius: 20px;
   padding: clamp(28px, 5vw, 76px);
   background:
-    linear-gradient(90deg, #291334 8%, #2f143cdd 47%, #4a1a5552 100%),
+    linear-gradient(90deg, #2c1944 7%, #32193cde 48%, #3a19443b 100%),
+    linear-gradient(180deg, #584184a8 0%, #ac529781 45%, #df757880 76%, #ffb47c81 100%),
     url("assets/entardecer.webp") center 67% / cover no-repeat,
     #2f173d;
 }
@@ -186,7 +189,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
 .update-clip:last-child { --delay: 210ms; --entry-x: 18px; transform: translateY(-3%) rotate(7deg); }
 .update-clip:hover, .update-clip:focus-visible { transform: translateY(-5%) rotate(0); }
 
-.offer-section { padding-block: clamp(64px, 8vw, 115px); background: radial-gradient(ellipse at 77% 40%, #4b21474f, transparent 63%), #160e1e; border-block: 1px solid #3b2844; }
+.offer-section { padding-block: clamp(64px, 8vw, 115px); background: radial-gradient(ellipse at 86% 1%, #5535776b, transparent 59%), radial-gradient(ellipse at 93% 100%, #ae5c5252, transparent 60%), #170f21; border-block: 1px solid #4b3151; }
 .offer-inner { display: grid; grid-template-columns: .84fr 1.16fr; align-items: center; gap: clamp(28px, 4vw, 64px); }
 .offer-copy h2 { font-size: clamp(2.85rem, 4.55vw, 4.55rem); }
 .offer-copy p:not(.eyebrow) { margin-top: 1.2rem; max-width: 42ch; }
@@ -207,13 +210,16 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
   --delay: 130ms;
   border: 1px solid transparent;
   background:
-    radial-gradient(ellipse at 90% 0%, #502346 0, #21132b 50%, #1a1124 100%) padding-box,
-    linear-gradient(145deg, #ffd298, #e08bb9 33%, #774980 67%, #543868) border-box;
+    linear-gradient(154deg, #39254e 0%, #372039 48%, #352029 100%) padding-box,
+    var(--sunset) border-box;
 }
 .plan-card h3 { font-size: clamp(1.9rem, 2.9vw, 2.65rem); line-height: 1; text-transform: uppercase; }
 .plan-price { display: flex; align-items: baseline; gap: .25rem; color: #ffbdba; font: 900 clamp(3.25rem, 5vw, 4.8rem)/.88 var(--display); margin: .92rem 0 1rem; }
 .plan-currency { font-size: .38em; }
 .plan-period { color: #efdbed; font: 600 .95rem/1 Barlow, sans-serif; white-space: nowrap; }
+.plan-card-yearly .plan-price { color: #ffd099; margin-bottom: .65rem; }
+.plan-installments { color: #f9dee8; font: 700 1rem/1 Barlow, sans-serif; white-space: nowrap; }
+.plan-upfront { margin-bottom: .55rem; color: #fff1f1; font-size: .97rem; line-height: 1.36; }
 .plan-note { margin: 0 0 1.15rem; color: #edd4e8; font-size: .91rem; line-height: 1.35; }
 .plan-note strong { color: #ffd09c; }
 .checkout-button { width: 100%; min-height: 48px; margin-top: auto; }
@@ -276,7 +282,10 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
   .brand { width: clamp(136px, 43vw, 180px); }
   .nav { display: none; }
   .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 2.4rem; padding-block: 3.8rem 3rem; }
-  .hero-landscape { background-position: center, center, 57% 75%; }
+  .hero-landscape {
+    --hero-shade: linear-gradient(180deg, #160e25f2 0%, #21122bd9 35%, #28163083 64%, #2a173833 100%);
+    background-position: center, center, center, 57% 75%;
+  }
   .hero h1 { font-size: clamp(62px, 12.3vw, 104px); }
   .hero-showcase { width: min(100%, 510px); margin-inline: auto; }
   .hero-clip { border-radius: 9px; }
@@ -295,7 +304,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
   .section-heading { margin-bottom: 1.5rem; }
   .update-panel { grid-template-columns: 1fr; border-radius: 15px; gap: 2.1rem; }
   .update-visual { width: min(100%, 350px); }
-  .update-panel { background-position: center, 59% center; }
+  .update-panel { background-position: center, center, 59% center; }
   .footer-inner { flex-wrap: wrap; }
   .footer-inner p { flex: 1 0 100%; order: 1; }
 }
