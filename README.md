@@ -4,9 +4,9 @@ Landing page estática em português para o pack de cortes de lives. O arquivo p
 
 ## Configurar a venda
 
-1. Quando as vendas forem abertas, preencha o atributo `content` da meta tag `checkout-url`, no início de `index.html`, com a URL HTTPS oficial do produto. O botão **Comprar o pack** aparece automaticamente. Enquanto o campo estiver vazio, a oferta exibe **Vendas em breve**.
-2. Para mudar o preço, atualize o valor numérico e o texto do elemento `<data id="pack-price">` no HTML. Mantenha o valor do checkout de acordo com o que estiver na página.
-3. Configure no serviço de venda a entrega do link do Google Drive aos compradores. Mantenha no Drive as pastas de cada criador e live e adicione os cortes novos ao acervo.
+1. Os botões **Assinar mensal** e **Assinar anual** apontam para seus respectivos checkouts da Kiwify. Para trocar um link, edite o atributo `href` do botão correspondente na seção `#oferta` de `index.html`.
+2. Ao mudar um preço na Kiwify, atualize também o texto e o atributo `value` do respectivo `<data>` no HTML. Recalcule a economia do anual subtraindo o valor anual à vista de 12 mensalidades.
+3. Configure na Kiwify a entrega do link do Google Drive aos assinantes. Mantenha no Drive as pastas de cada criador e live e adicione os cortes novos ao acervo.
 
 ## Publicar via GitHub e Vercel
 

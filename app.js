@@ -85,24 +85,3 @@ if (typeof dialog.showModal === "function") {
   document.querySelector("#prev-clip").addEventListener("click", () => stepClip(-1));
   document.querySelector("#next-clip").addEventListener("click", () => stepClip(1));
 }
-
-function configureCheckout() {
-  const checkoutSetting = document.querySelector('meta[name="checkout-url"]').content.trim();
-  if (!checkoutSetting) return;
-
-  let url;
-  try {
-    url = new URL(checkoutSetting);
-  } catch {
-    return;
-  }
-  if (url.protocol !== "https:") return;
-
-  const checkout = document.querySelector("#checkout");
-  checkout.href = url.href;
-  checkout.hidden = false;
-  document.querySelector("#coming-soon").hidden = true;
-  document.querySelector("#offer-status").hidden = true;
-}
-
-configureCheckout();
