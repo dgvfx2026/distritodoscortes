@@ -14,8 +14,13 @@
   --peach: #ffc18f;
   --line: #35253e;
   --sunset: linear-gradient(180deg, #c5adfc 0%, #e391d6 29%, #fa98ad 56%, #ffab84 81%, #ffd098 100%);
+  --city-image: url("assets/entardecer.webp");
   --display: "Barlow Condensed", Impact, "Arial Narrow", sans-serif;
   --ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+@supports (background-image: image-set(url("assets/entardecer.avif") type("image/avif"))) {
+  :root { --city-image: image-set(url("assets/entardecer.avif") type("image/avif"), url("assets/entardecer.webp") type("image/webp")); }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -65,9 +70,10 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
 .button-primary:hover { box-shadow: 0 12px 38px #fa71af61; }
 .mobile-plans { display: none; }
 .eyebrow { display: flex; align-items: center; gap: .64rem; color: var(--pink); font-size: .77rem; font-weight: 700; letter-spacing: .17em; line-height: 1.3; }
-.live-dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #ff9abd; box-shadow: 0 0 0 5px #ff90b31d; }
-.hero .live-dot, .update-copy .live-dot { animation: signal 2.8s ease-out 3; }
-@keyframes signal { 60%, 100% { box-shadow: 0 0 0 9px #ff90b300; } }
+.live-dot { position: relative; width: 8px; height: 8px; flex: none; border-radius: 50%; background: #ff9abd; }
+.live-dot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 5px #ff90b31d; pointer-events: none; }
+.hero .live-dot::after, .update-copy .live-dot::after { animation: signal 2.8s ease-out 3; }
+@keyframes signal { 60%, 100% { scale: 1.444; opacity: 0; } }
 .section-dash { width: 25px; height: 2px; background: var(--sunset); border-radius: 2px; }
 .gradient-text { color: var(--pink); background: var(--sunset); background-clip: text; -webkit-text-fill-color: transparent; }
 
@@ -77,11 +83,17 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
   position: absolute;
   inset: 0;
   z-index: -1;
+}
+.hero-landscape picture, .hero-landscape img { display: block; width: 100%; height: 100%; }
+.hero-landscape img { object-fit: cover; object-position: center 60%; }
+.hero-landscape::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
     var(--hero-shade),
     linear-gradient(0deg, #100b18 0%, #160e1adc 8%, #27163125 29%, transparent 47%),
-    linear-gradient(180deg, #4c3e8296 5%, #a062ac83 37%, #f679a582 62%, #ffad78ac 84%, #ffc18560 100%),
-    url("assets/entardecer.webp") center 60% / cover no-repeat;
+    linear-gradient(180deg, #4c3e8296 5%, #a062ac83 37%, #f679a582 62%, #ffad78ac 84%, #ffc18560 100%);
 }
 .hero-inner {
   display: grid;
@@ -99,7 +111,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
 .watch-link { display: inline-flex; align-items: center; gap: .48rem; min-height: 44px; font-weight: 700; }
 .mini-play { width: 21px; height: 21px; display: grid; place-items: center; border: 1px solid #c89fca; border-radius: 50%; }
 .mini-play::after { content: ""; margin-left: 2px; border: 3px solid transparent; border-left: 5px solid currentColor; border-right: 0; }
-.hero-enter { animation: enter .8s var(--ease) both; }
+.hero-enter { animation: enter .8s var(--ease) backwards; }
 .hero-copy > :nth-child(2) { animation-delay: 90ms; }
 .hero-copy > :nth-child(3) { animation-delay: 180ms; }
 .hero-copy > :nth-child(4) { animation-delay: 270ms; }
@@ -176,6 +188,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
 }
 .sample-preview:is(:hover, :focus-visible) { border-color: #f097c5; box-shadow: 0 12px 32px #df79b922; }
 .sample-media { position: relative; overflow: hidden; aspect-ratio: 9 / 12; border: 1px solid #92617f; border-radius: 10px; background: #25162d; }
+.sample-media picture { display: block; height: 100%; }
 .sample-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .65s var(--ease); }
 .sample-preview:is(:hover, :focus-visible) .sample-media img { transform: scale(1.06); }
 .sample-media .clip-play { top: 54%; }
@@ -198,7 +211,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
   background:
     linear-gradient(90deg, #2c1944 7%, #32193cde 48%, #3a19443b 100%),
     linear-gradient(180deg, #584184a8 0%, #ac529781 45%, #df757880 76%, #ffb47c81 100%),
-    url("assets/entardecer.webp") center 67% / cover no-repeat,
+    var(--city-image) center 67% / cover no-repeat,
     #2f173d;
 }
 .update-panel::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .32; background: repeating-linear-gradient(125deg, transparent 0 40px, #d67bcb26 41px 42px, transparent 43px 81px); }
@@ -315,8 +328,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 900; }
   .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 2.4rem; padding-block: 3.8rem 3rem; }
   .hero-landscape {
     --hero-shade: linear-gradient(180deg, #160e25f2 0%, #21122bd9 35%, #28163083 64%, #2a173833 100%);
-    background-position: center, center, center, 57% 75%;
   }
+  .hero-landscape img { object-position: 57% 75%; }
   .hero h1 { font-size: clamp(62px, 12.3vw, 104px); }
   .hero-showcase { width: min(100%, 510px); margin-inline: auto; }
   .hero-clip { border-radius: 9px; }

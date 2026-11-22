@@ -13,8 +13,12 @@ if ("IntersectionObserver" in window && (motionPreview || !reducedMotion.matches
     }
   }, { rootMargin: "0px 0px -32px 0px" });
 
-  for (const block of document.querySelectorAll("[data-reveal]")) {
-    if (block.getBoundingClientRect().bottom <= 0) continue;
+  const blocks = [...document.querySelectorAll("[data-reveal]")];
+  const upcomingBlocks = window.scrollY > 0
+    ? blocks.filter(block => block.getBoundingClientRect().bottom > 0)
+    : blocks;
+
+  for (const block of upcomingBlocks) {
     block.classList.add("reveal-wait");
     observer.observe(block);
   }
@@ -24,18 +28,36 @@ const mobilePlans = document.querySelector(".mobile-plans");
 const mobileViewport = window.matchMedia("(max-width: 760px)");
 const hero = document.querySelector(".hero");
 const offer = document.querySelector("#oferta");
+let heroEnd = 0;
+let offerStart = 0;
 
 function updateMobilePlans() {
+  const top = window.scrollY;
   const hidden = !mobileViewport.matches ||
-    hero.getBoundingClientRect().bottom > 0 ||
-    offer.getBoundingClientRect().top < window.innerHeight;
+    top < heroEnd ||
+    top > offerStart - window.innerHeight;
   if (mobilePlans.hidden !== hidden) mobilePlans.hidden = hidden;
 }
 
-window.addEventListener("scroll", updateMobilePlans, { passive: true });
-window.addEventListener("resize", updateMobilePlans);
-window.addEventListener("pageshow", updateMobilePlans);
-updateMobilePlans();
+function measureMobilePlans() {
+  if (mobileViewport.matches) {
+    const top = window.scrollY;
+    heroEnd = hero.getBoundingClientRect().bottom + top;
+    offerStart = offer.getBoundingClientRect().top + top;
+  }
+  updateMobilePlans();
+}
+
+const canObserveSize = "ResizeObserver" in window;
+if (canObserveSize) {
+  const observer = new ResizeObserver(measureMobilePlans);
+  observer.observe(hero);
+  observer.observe(document.querySelector("main"));
+}
+window.addEventListener("scroll", canObserveSize ? updateMobilePlans : measureMobilePlans, { passive: true });
+window.addEventListener("resize", measureMobilePlans);
+window.addEventListener("pageshow", measureMobilePlans);
+measureMobilePlans();
 
 const dialog = document.querySelector(".player");
 const video = document.querySelector("#clip-video");
@@ -58,7 +80,8 @@ function playClip() {
   playerControls.hidden = group.length === 1;
   playerError.hidden = true;
   playerDownload.href = clip.href;
-  video.poster = clip.querySelector("img").src;
+  const poster = clip.querySelector("img");
+  video.poster = poster.currentSrc || poster.src;
   video.src = clip.href;
   video.play().catch(() => {
     // Os controles nativos continuam disponíveis caso o navegador bloqueie a reprodução.

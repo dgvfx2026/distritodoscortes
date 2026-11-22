@@ -38,7 +38,10 @@
   <header class="site-header" id="topo">
     <div class="shell header-inner">
       <a class="brand" href="#topo" aria-label="Distrito dos Cortes, início">
-        <img src="assets/logo-distrito.webp" alt="" width="664" height="174">
+        <picture>
+          <source srcset="assets/logo-distrito.avif" type="image/avif">
+          <img src="assets/logo-distrito.webp" alt="" width="664" height="174">
+        </picture>
       </a>
       <nav class="nav" aria-label="Navegação principal">
         <a href="#previas">Prévias</a>
@@ -52,7 +55,12 @@
 
   <main id="conteudo">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-landscape" aria-hidden="true"></div>
+      <div class="hero-landscape" aria-hidden="true">
+        <picture>
+          <source srcset="assets/entardecer.avif" type="image/avif">
+          <img src="assets/entardecer.webp" alt="" width="1440" height="960" fetchpriority="high">
+        </picture>
+      </div>
       <div class="shell hero-inner">
         <div class="hero-copy">
           <p class="eyebrow hero-enter"><span class="live-dot" aria-hidden="true"></span> PACK DE CORTES DE LIVE</p>
@@ -68,19 +76,28 @@
           <div class="showcase-heading" data-reveal><span>PRÉVIAS DO PACK</span><span class="showcase-line"></span><span>9:16</span></div>
           <div class="hero-deck" data-player-group>
             <a class="clip hero-clip hero-clip-left" href="assets/previews/alanzoka-neon.mp4" data-clip data-creator="Alanzoka" data-reveal>
-              <img src="assets/previews/alanzoka-neon.webp" alt="" width="360" height="640" decoding="async">
+              <picture>
+                <source srcset="assets/previews/alanzoka-neon.avif" type="image/avif">
+                <img src="assets/previews/alanzoka-neon.webp" alt="" width="360" height="640" decoding="async">
+              </picture>
               <span class="clip-play" aria-hidden="true"></span>
               <span class="duration" aria-hidden="true">0:12</span>
               <span class="clip-copy"><span class="clip-creator">Alanzoka</span><strong class="clip-title">Os neons de Vice City</strong></span>
             </a>
             <a class="clip hero-clip hero-clip-center" href="assets/previews/speed-carro.mp4" data-clip data-creator="IShowSpeed" data-reveal>
-              <img src="assets/previews/speed-carro.webp" alt="" width="360" height="640" fetchpriority="high" decoding="async">
+              <picture>
+                <source srcset="assets/previews/speed-carro.avif" type="image/avif">
+                <img src="assets/previews/speed-carro.webp" alt="" width="360" height="640" decoding="async">
+              </picture>
               <span class="clip-play" aria-hidden="true"></span>
               <span class="duration" aria-hidden="true">0:12</span>
               <span class="clip-copy"><span class="clip-creator">IShowSpeed</span><strong class="clip-title">O carro azul pegou Speed de surpresa</strong></span>
             </a>
             <a class="clip hero-clip hero-clip-right" href="assets/previews/paulinho-ferrari.mp4" data-clip data-creator="Paulinho o Loko" data-reveal>
-              <img src="assets/previews/paulinho-ferrari.webp" alt="" width="360" height="640" decoding="async">
+              <picture>
+                <source srcset="assets/previews/paulinho-ferrari.avif" type="image/avif">
+                <img src="assets/previews/paulinho-ferrari.webp" alt="" width="360" height="640" decoding="async">
+              </picture>
               <span class="clip-play" aria-hidden="true"></span>
               <span class="duration" aria-hidden="true">0:12</span>
               <span class="clip-copy"><span class="clip-creator">Paulinho o Loko</span><strong class="clip-title">A primeira Ferrari</strong></span>
@@ -109,37 +126,55 @@
       </div>
       <div class="gallery-grid" data-player-group>
         <a class="clip gallery-clip" href="assets/previews/alanzoka-jacare.mp4" data-clip data-creator="Alanzoka" data-reveal>
-          <img src="assets/previews/alanzoka-jacare.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="assets/previews/alanzoka-jacare.avif" type="image/avif">
+            <img src="assets/previews/alanzoka-jacare.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+          </picture>
           <span class="clip-play" aria-hidden="true"></span>
           <span class="duration" aria-hidden="true">0:12</span>
           <span class="clip-copy"><span class="clip-creator">Alanzoka</span><strong class="clip-title">O jacaré quase pegou o Alan</strong></span>
         </a>
         <a class="clip gallery-clip" href="assets/previews/speed-voo.mp4" data-clip data-creator="IShowSpeed" data-reveal>
-          <img src="assets/previews/speed-voo.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="assets/previews/speed-voo.avif" type="image/avif">
+            <img src="assets/previews/speed-voo.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+          </picture>
           <span class="clip-play" aria-hidden="true"></span>
           <span class="duration" aria-hidden="true">0:12</span>
           <span class="clip-copy"><span class="clip-creator">IShowSpeed</span><strong class="clip-title">Vice City vista do céu</strong></span>
         </a>
         <a class="clip gallery-clip" href="assets/previews/coringa-esportivo.mp4" data-clip data-creator="Coringa" data-reveal>
-          <img src="assets/previews/coringa-esportivo.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="assets/previews/coringa-esportivo.avif" type="image/avif">
+            <img src="assets/previews/coringa-esportivo.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+          </picture>
           <span class="clip-play" aria-hidden="true"></span>
           <span class="duration" aria-hidden="true">0:12</span>
           <span class="clip-copy"><span class="clip-creator">Coringa</span><strong class="clip-title">Derrapando ao pôr do sol</strong></span>
         </a>
         <a class="clip gallery-clip" href="assets/previews/paulinho-ferrari.mp4" data-clip data-creator="Paulinho o Loko" data-reveal>
-          <img src="assets/previews/paulinho-ferrari.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="assets/previews/paulinho-ferrari.avif" type="image/avif">
+            <img src="assets/previews/paulinho-ferrari.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+          </picture>
           <span class="clip-play" aria-hidden="true"></span>
           <span class="duration" aria-hidden="true">0:12</span>
           <span class="clip-copy"><span class="clip-creator">Paulinho o Loko</span><strong class="clip-title">A primeira Ferrari</strong></span>
         </a>
         <a class="clip gallery-clip" href="assets/previews/bistecone-voo.mp4" data-clip data-creator="Bistecone" data-reveal>
-          <img src="assets/previews/bistecone-voo.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="assets/previews/bistecone-voo.avif" type="image/avif">
+            <img src="assets/previews/bistecone-voo.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+          </picture>
           <span class="clip-play" aria-hidden="true"></span>
           <span class="duration" aria-hidden="true">0:12</span>
           <span class="clip-copy"><span class="clip-creator">Bistecone</span><strong class="clip-title">Voo no pôr do sol</strong></span>
         </a>
         <a class="clip gallery-clip" href="assets/previews/polex-estrelas.mp4" data-clip data-creator="Polex" data-reveal>
-          <img src="assets/previews/polex-estrelas.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+          <picture>
+            <source srcset="assets/previews/polex-estrelas.avif" type="image/avif">
+            <img src="assets/previews/polex-estrelas.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+          </picture>
           <span class="clip-play" aria-hidden="true"></span>
           <span class="duration" aria-hidden="true">0:12</span>
           <span class="clip-copy"><span class="clip-creator">Polex</span><strong class="clip-title">Cinco estrelas no ar</strong></span>
@@ -148,7 +183,10 @@
       <div data-player-group>
         <a class="sample-preview" href="assets/previews/alanzoka-jet-ski-completo.mp4" data-clip data-creator="Alanzoka" data-reveal>
           <div class="sample-media">
-            <img src="assets/previews/alanzoka-jet-ski-completo.webp" alt="" width="528" height="938" loading="lazy" decoding="async">
+            <picture>
+              <source srcset="assets/previews/alanzoka-jet-ski-completo.avif" type="image/avif">
+              <img src="assets/previews/alanzoka-jet-ski-completo.webp" alt="" width="528" height="938" loading="lazy" fetchpriority="low" decoding="async">
+            </picture>
             <span class="clip-play" aria-hidden="true"></span>
           </div>
           <div class="sample-copy">
@@ -171,13 +209,19 @@
         </div>
         <div class="update-visual" data-player-group>
           <a class="clip update-clip" href="assets/previews/coringa-vice-city.mp4" data-clip data-creator="Coringa" data-reveal>
-            <img src="assets/previews/coringa-vice-city.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+            <picture>
+              <source srcset="assets/previews/coringa-vice-city.avif" type="image/avif">
+              <img src="assets/previews/coringa-vice-city.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+            </picture>
             <span class="clip-play" aria-hidden="true"></span>
             <span class="duration" aria-hidden="true">0:12</span>
             <span class="clip-copy"><span class="clip-creator">Coringa</span><strong class="clip-title">Da festa pro pôr do sol</strong></span>
           </a>
           <a class="clip update-clip" href="assets/previews/alanzoka-neon.mp4" data-clip data-creator="Alanzoka" data-reveal>
-            <img src="assets/previews/alanzoka-neon.webp" alt="" width="360" height="640" loading="lazy" decoding="async">
+            <picture>
+              <source srcset="assets/previews/alanzoka-neon.avif" type="image/avif">
+              <img src="assets/previews/alanzoka-neon.webp" alt="" width="360" height="640" loading="lazy" fetchpriority="low" decoding="async">
+            </picture>
             <span class="clip-play" aria-hidden="true"></span>
             <span class="duration" aria-hidden="true">0:12</span>
             <span class="clip-copy"><span class="clip-creator">Alanzoka</span><strong class="clip-title">Os neons de Vice City</strong></span>
@@ -259,7 +303,10 @@
   <footer class="site-footer">
     <div class="shell footer-inner">
       <a class="brand" href="#topo" aria-label="Distrito dos Cortes, voltar ao início">
-        <img src="assets/logo-distrito.webp" alt="" width="664" height="174" loading="lazy">
+        <picture>
+          <source srcset="assets/logo-distrito.avif" type="image/avif">
+          <img src="assets/logo-distrito.webp" alt="" width="664" height="174" loading="lazy" fetchpriority="low">
+        </picture>
       </a>
       <p>Curadoria independente de cortes de lives.</p>
       <a class="back-link" href="#topo">Voltar ao topo</a>
